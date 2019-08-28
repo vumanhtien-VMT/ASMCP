@@ -22,18 +22,18 @@ if (isset($_POST['update'])) {
 			</script>
 		<?php
 		} else {
-			$sql = "UPDATE product SET name='$name', price='$price', descrip='$description' WHERE productid='$id', stt='$stt'";
+			$sql = "UPDATE product SET name='$name', price='$price', descrip='$description' WHERE id='$id', stt='$stt'";
 			$run = pg_query($conn, $sql);
 			if ($run) { ?>
 			<script type="text/javascript">
 					alert ("Update info successfully!!");
-					window.location.href = "/sanpham.php";
+					window.location.href = "sanpham.php";
 			</script>
 			<?php 
 			} else { ?>
 			<script type="text/javascript">
 					alert ("Update product failed!!");
-					window.location.href = "/sanpham.php";
+					window.location.href = "sanpham.php";
 			</script>
 			<?php } 
 		}
