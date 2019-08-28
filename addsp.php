@@ -51,7 +51,7 @@
                                 ?> 
                                     <script>
                                         alert("Added successful!");
-                                        window.location.href = "/sanpham.php";
+                                        window.location.href = "sanpham.php";
                                     </script>
                                 <?php
                             }
