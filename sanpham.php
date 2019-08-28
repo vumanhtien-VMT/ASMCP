@@ -83,5 +83,10 @@ if(isset($_POST["aduser"]) && isset($_POST["adpass"]))
         </table>
         <button><a href="addsp.php">Add Product</a></button>
 	</div>
+	<div class="wrapper">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
 </body>
 </html>

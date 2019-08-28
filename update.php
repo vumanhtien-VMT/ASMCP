@@ -73,11 +73,17 @@ if (isset($_POST['update'])) {
 			<input type="text" name="name" value="<?= $row[1] ?>">
 			<input type="text" name="price" value="<?= $row[2] ?>">
 			<input type="text" name="description" value="<?= $row[3] ?>">
+
 			<input type="submit" name="update" value="Update">
 		</form>
         
         <button><a href="sanpham.php">Back</a></button>
 		<br><br>
+    </div>
+    <div class="wrapper">
+        <div></div>
+        <div></div>
+        <div></div>
     </div>
 </body>
 

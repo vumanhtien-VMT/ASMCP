@@ -68,7 +68,10 @@
              <button><a href="sanpham.php">Back</a></button>
         </div>
     </div>
-        
+    <div class="wrapper">
+        <div></div>
+        <div></div>
+        <div></div>
     </div>
 </body>
 </html>
