@@ -33,6 +33,7 @@
     padding: 30px;
 }
 .table{
+	
 	border: 1px solid gray;
 	width: 40%;
 	margin: 100px auto;
@@ -62,8 +63,7 @@
 .than{
 	background-color: #696969;
 }
-.wrapper{
-	html, body {
+html, body {
   background: #101114;
   position: absolute;
   width: 100%;
@@ -71,7 +71,7 @@
   font-size: 40px;
 }
 
-html, body {
+.wrapper {
   width: 1em;
   height: 1em;
   position: absolute;
