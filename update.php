@@ -4,10 +4,9 @@ require("connect.php");
 $id = $_POST['id'];
 if (isset($_POST['update'])) {
 	$name = $_POST["name"];
-	$stt = $_POST["stt"];
     $price = $_POST["price"];
 	$description = $_POST["description"];
-	if ($name == ""|| $stt == ""|| $price == ""|| $description == "") {
+	if ($name == ""|| $price == ""|| $description == "") {
     ?>
 		<script>
 			alert("Product information should not be blank!!");
@@ -49,14 +48,21 @@ if (isset($_POST['update'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" type="text/css" href="add.css">
     <title>Update</title>
 </head>
 
 <body>
+	<div class="dau">
+		<h1>TOYS SHOP</h1>
+		<div class="lo">
+			<button><a href="index.php">Logout</a></button>
+		</div>
+		<div class="menu"></div>
+	</div>
     <div>
         <h1>Update Information</h1>
-        <form action="/update.php" method="POST">
+        <form action="update.php" method="POST">
 			<?php
 			$qry = "SELECT * FROM product WHERE productid = '$id'";
 			$result = pg_query($conn, $qry);
@@ -70,7 +76,7 @@ if (isset($_POST['update'])) {
 			<input type="submit" name="update" value="Update">
 		</form>
         
-        <button><a href="/managing.php">Back</a></button>
+        <button><a href="sanpham.php">Back</a></button>
 		<br><br>
     </div>
 </body>

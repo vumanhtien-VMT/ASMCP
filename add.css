@@ -47,5 +47,8 @@
 	position: relative;
 	left: 1350px;
 	bottom: 70px;
-
+}
+.ad{
+	width: 600px;
+	height: 100px;
 }

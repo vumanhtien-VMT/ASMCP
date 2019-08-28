@@ -35,9 +35,7 @@ if(isset($_POST["aduser"]) && isset($_POST["adpass"]))
 		<div class="lo">
 			<button><a href="index.php">Logout</a></button>
 		</div>
-		<div class="menu">
-			
-		</div>
+		<div class="menu"></div>
 	</div>
 	<div class="than">
 		<table>
@@ -52,7 +50,7 @@ if(isset($_POST["aduser"]) && isset($_POST["adpass"]))
 			</tr>
 
 			 <?php
-            require_once './data.php';
+            require_once 'data.php';
             $sql = "SELECT * FROM toys";
             $stmt = $pdo->prepare($sql);
             foreach ($pdo->query($sql) as $row) {
@@ -64,7 +62,7 @@ if(isset($_POST["aduser"]) && isset($_POST["adpass"]))
 	                <td class="info"><?php echo $row['description']?></td> 
 	                <td class="info"><?php echo $row['id']?></td>
 	                <td class="info">
-	                	<form action='/delete.php' method="POST">
+	                	<form action='delete.php' method="POST">
                             <input type='hidden' name='id' value='<?php echo $row['id']?>'>
                             <input class="edit-btn" type='submit' value='Delete'>
                         </form> <br>
