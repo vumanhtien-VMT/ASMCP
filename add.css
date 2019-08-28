@@ -6,7 +6,7 @@
 	position: relative;
 	border: 1px solid #A6A2A2;
 	height: 180px;
-	background-color:white;
+	background-color:#1C1C1C;
 	background-repeat: no-repeat;
 	background-size: 200px 100px;
 }
@@ -50,5 +50,93 @@
 }
 .ad{
 	width: 600px;
-	height: 100px;
+	height: 50px;
+}
+.ts{
+	color: linear-gradient (#C6E2FF, #B9D3EE, #9FB6CD)
+}
+.li{
+	width: 600px;
+	height: 50px;
+}
+.than{
+	$side: 120px
+	$l: 90px
+	$num: 10
+	$dur: 10s
+
+	@mixin plane($w, $h)
+	width: $w
+	height: $h
+	transform-style: preserve-3d
+
+	@mixin view($p)
+	position: absolute
+	top: 0
+	left: 0
+	right: 0
+	bottom: 0
+	perspective: $p
+
+	@mixin center
+	position: absolute
+	top: 0
+	left: 0
+	right: 0
+	bottom: 0
+	margin: auto      
+
+	html, body
+	background: #222
+	overflow: hidden
+	width: 100%
+	height: 100%
+
+	.view
+	@include view(400)
+
+	.plane
+	@include plane($side, $side)
+
+	&.main
+	@include center
+	transform: rotateX(60deg) rotateZ(-30deg)
+	animation: rotate 20s infinite linear
+	  
+	.circle
+	  width: $side
+	  height: $side
+	  position: absolute
+	  transform-style: preserve-3d
+	  border-radius: 100%
+	  //border: 2px solid white
+	  box-sizing: border-box
+	  box-shadow: 0 0 60px rgba(crimson, 1), inset 0 0 60px rgba(crimson, 1)
+
+	  &::before, &::after
+	    content: ''
+	    display: block
+	    @include center
+	    width: 10%
+	    height: 10%
+	    border-radius: 100%
+	    background: rgba(crimson, 1)
+	    //border: 4px solid black
+	    box-sizing: border-box
+	    box-shadow: 0 0 60px 2px rgba(crimson, 1)
+
+	  &::before
+	    transform: translateZ(-$l)
+	  &::after
+	    transform: translateZ($l)
+
+	  @for $i from 1 through 5
+	    &:nth-child(#{$i})
+	      transform: rotateZ($i / 5 * 360deg) rotateX(63.435deg)
+
+	@keyframes rotate
+	0%
+	transform: rotateX(0) rotateY(0) rotateZ(0)
+	100%
+	transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg) 
 }

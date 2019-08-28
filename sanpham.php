@@ -31,7 +31,7 @@ if(isset($_POST["aduser"]) && isset($_POST["adpass"]))
 </head>
 <body>
 	<div class="dau">
-		<h1>TOYS SHOP</h1>
+		<h1 class="ts">TOYS SHOP</h1>
 		<div class="lo">
 			<button><a href="index.php">Logout</a></button>
 		</div>

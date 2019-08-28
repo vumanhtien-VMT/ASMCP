@@ -54,13 +54,13 @@ if (isset($_POST['update'])) {
 
 <body>
 	<div class="dau">
-		<h1>TOYS SHOP</h1>
+		<h1 class="ts">TOYS SHOP</h1>
 		<div class="lo">
 			<button><a href="index.php">Logout</a></button>
 		</div>
 		<div class="menu"></div>
 	</div>
-    <div>
+    <div class="than">
         <h1>Update Information</h1>
         <form action="update.php" method="POST">
 			<?php

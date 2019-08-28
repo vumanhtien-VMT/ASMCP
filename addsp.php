@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="dau">
-        <h1>TOYS SHOP</h1>
+        <h1 class="ts">TOYS SHOP</h1>
         <div class="menu">
             
         </div>
@@ -57,7 +57,7 @@
                             }
                         }
                 }
-                 ?>
+                ?>
             <form action="addsp.php" method="Post">
                 <input type="text" class="ad" name="name" placeholder="Name"> <br>
                 <input type="text" class="ad" name="price" placeholder="Price"> <br>
