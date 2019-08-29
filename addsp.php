@@ -48,13 +48,22 @@
                             else
                             {
                                 $sql = "insert into toys(name, price, description, quantity) values ('$name','$price','$description','$quantity')";
-                                pg_query($conn,$sql);
-                                ?> 
-                                    <script>
-                                        alert("Added successful!");
-                                        window.location.href = "sanpham.php";
-                                    </script>
-                                <?php
+                                $run = pg_query($conn,$sql);
+                                if($run){
+                                    ?> 
+                                        <script>
+                                            alert("Added successful!");
+                                            window.location.href = "sanpham.php";
+                                        </script>
+                                    <?php
+                                } else {
+                                    ?>
+                                        <script type="text/javascript">
+                                            alert("Added fail")
+                                        </script>
+                                    <?php
+                                }
+
                             }
                         }
                 }
