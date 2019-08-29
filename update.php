@@ -1,29 +1,28 @@
 <?php
 require("connect.php");
 
-$id = $_POST['stt'];
+$id = $_POST['id'];
 if (isset($_POST['update'])) {
 	$name = $_POST["name"];
     $price = $_POST["price"];
 	$description = $_POST["description"];
-	$quantity = $_POST["quantity"];
-	if ($name == ""|| $price == ""|| $description == ""|| $quantity == "") {
+	if ($name == ""|| $price == ""|| $description == "") {
     ?>
 		<script>
 			alert("Product information should not be blank!!");
 		</script>
 		<?php
     } else {
-		$sql = "select * from product where name='$name'";
+		$sql = "select * from toys where name='$name'";
 		$query = pg_query($conn, $sql);
 		if(pg_num_rows($query)>0) {
 		?> 
 			<script>
-				alert("The product is available!!");
+				alert("The toys is available!!");
 			</script>
 		<?php
 		} else {
-			$sql = "UPDATE product SET name='$name', price='$price', description='$description', quantity='$quantity' WHERE stt='$stt'";
+			$sql = "UPDATE toys SET name='$name', price='$price', description='$description', WHERE ID='$id'";
 			$run = pg_query($conn, $sql);
 			if ($run) { ?>
 			<script type="text/javascript">
@@ -65,16 +64,15 @@ if (isset($_POST['update'])) {
         <h1>Update Information</h1>
         <form action="update.php" method="POST">
 			<?php
-			$qry = "SELECT * FROM toys WHERE stt = '$stt'";
+			$qry = "SELECT * FROM toys WHERE ID = '$id'";
 			$result = pg_query($conn, $qry);
 			$row = pg_fetch_row($result);
 			?>
 			
-			<input type="hidden" name="stt" value="<?= $row[0] ?>">
+			<input type="hidden" name="id" value="<?= $row[0] ?>">
 			<input type="text" name="name" value="<?= $row[1] ?>">
 			<input type="text" name="price" value="<?= $row[2] ?>">
 			<input type="text" name="description" value="<?= $row[3] ?>">
-			<input type="text" name="quantity" value="<?= $row[4] ?>">
 
 			<input type="submit" name="update" value="Update">
 		</form>

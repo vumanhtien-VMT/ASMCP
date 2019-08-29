@@ -24,8 +24,7 @@
                     $name = $_POST["name"];
                     $price = $_POST["price"];
                     $description = $_POST["description"];
-                    $quantity = $_POST["quantity"];
-                    if ($name == ""|| $price == ""|| $description == ""|| $quantity =="") 
+                    if ($name == ""|| $price == ""|| $description == "") 
                         {
                             ?>
                             <script>
@@ -45,25 +44,15 @@
                                 </script>
                             <?php
                             }
-                            else
-                            {
-                                $sql = "insert into toys(name, price, description, quantity) values ('$name','$price','$description','$quantity')";
-                                $run = pg_query($conn,$sql);
-                                if($run){
-                                    ?> 
-                                        <script>
-                                            alert("Added successful!");
-                                            window.location.href = "sanpham.php";
-                                        </script>
-                                    <?php
-                                } else {
-                                    ?>
-                                        <script type="text/javascript">
-                                            alert("Added fail")
-                                        </script>
-                                    <?php
-                                }
-
+                            else {
+                                $sql = "INSERT INTO toys(name, price, description) VALUES ('$name','$price','$description')";
+                                pg_query($conn,$sql);
+                                ?> 
+                                    <script>
+                                        alert("Added successful!");
+                                        window.location.href = "sanpham.php";
+                                    </script>
+                                <?php
                             }
                         }
                 }
@@ -72,7 +61,6 @@
                 <input type="text" class="ad" name="name" placeholder="Name"> <br>
                 <input type="text" class="ad" name="price" placeholder="Price"> <br>
                 <input type="text" class="ad" name="description" placeholder="description"> <br>
-                <input type="text" class="ad" name="quantity" placeholder="quantity"> <br>
                 <button type="submit" value="Add" name="submit">Add</button>
             </form>
 
