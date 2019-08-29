@@ -65,7 +65,7 @@ if (isset($_POST['update'])) {
         <h1>Update Information</h1>
         <form action="update.php" method="POST">
 			<?php
-			$qry = "SELECT * FROM product WHERE stt = '$stt'";
+			$qry = "SELECT * FROM toys WHERE stt = '$stt'";
 			$result = pg_query($conn, $qry);
 			$row = pg_fetch_row($result);
 			?>
