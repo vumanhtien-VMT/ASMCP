@@ -1,5 +1,5 @@
 <?php 
-require_once './connect.php';  
+require_once 'connect.php';  
 if(isset($_POST["aduser"]) && isset($_POST["adpass"]))
 {
 	$user = $_POST["aduser"];
@@ -15,7 +15,7 @@ if(isset($_POST["aduser"]) && isset($_POST["adpass"]))
         ?>
             <script>
                 alert("Wrong Username/Password");
-                window.location.href = "/index.php";
+                window.location.href = "index.php";
             </script>
         <?php }
 }
