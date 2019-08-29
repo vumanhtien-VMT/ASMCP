@@ -24,7 +24,8 @@
                     $name = $_POST["name"];
                     $price = $_POST["price"];
                     $description = $_POST["description"];
-                    if ($name == ""||$price == ""|| $description == "") 
+                    $quantity = $_POST["quantity"];
+                    if ($name == ""|| $price == ""|| $description == ""|| $quantity =="") 
                         {
                             ?>
                             <script>
@@ -46,7 +47,7 @@
                             }
                             else
                             {
-                                $sql = "INSERT INTO product(name, price, description) VALUES ('$name','$price','$description')";
+                                $sql = "INSERT INTO product(name, price, description,quantity) VALUES ('$name','$price','$description','$quantity')";
                                 pg_query($conn,$sql);
                                 ?> 
                                     <script>
@@ -61,7 +62,8 @@
             <form action="addsp.php" method="Post">
                 <input type="text" class="ad" name="name" placeholder="Name"> <br>
                 <input type="text" class="ad" name="price" placeholder="Price"> <br>
-                <input type="text" class="ad" name="description" placeholder="Description"> <br>
+                <input type="text" class="ad" name="description" placeholder="description"> <br>
+                <input type="text" class="ad" name="quantity" placeholder="quantity"> <br>
                 <button type="submit" value="Add" name="submit">Add</button>
             </form>
 

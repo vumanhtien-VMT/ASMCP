@@ -1,12 +1,13 @@
 <?php
 require("connect.php");
 
-$id = $_POST['id'];
+$id = $_POST['stt'];
 if (isset($_POST['update'])) {
 	$name = $_POST["name"];
     $price = $_POST["price"];
 	$description = $_POST["description"];
-	if ($name == ""|| $price == ""|| $description == "") {
+	$quantity = $_POST["quantity"];
+	if ($name == ""|| $price == ""|| $description == ""|| $quantity == "") {
     ?>
 		<script>
 			alert("Product information should not be blank!!");
@@ -22,7 +23,7 @@ if (isset($_POST['update'])) {
 			</script>
 		<?php
 		} else {
-			$sql = "UPDATE product SET name='$name', price='$price', descrip='$description' WHERE id='$id', stt='$stt'";
+			$sql = "UPDATE product SET name='$name', price='$price', description='$description', quantity='$quantity' WHERE stt='$stt'";
 			$run = pg_query($conn, $sql);
 			if ($run) { ?>
 			<script type="text/javascript">
@@ -64,15 +65,16 @@ if (isset($_POST['update'])) {
         <h1>Update Information</h1>
         <form action="update.php" method="POST">
 			<?php
-			$qry = "SELECT * FROM product WHERE productid = '$id'";
+			$qry = "SELECT * FROM product WHERE stt = '$stt'";
 			$result = pg_query($conn, $qry);
 			$row = pg_fetch_row($result);
 			?>
+			
 			<input type="hidden" name="stt" value="<?= $row[0] ?>">
-			<input type="hidden" name="id" value="<?= $row[4] ?>">
 			<input type="text" name="name" value="<?= $row[1] ?>">
 			<input type="text" name="price" value="<?= $row[2] ?>">
 			<input type="text" name="description" value="<?= $row[3] ?>">
+			<input type="text" name="quantity" value="<?= $row[4] ?>">
 
 			<input type="submit" name="update" value="Update">
 		</form>

@@ -45,7 +45,7 @@ if(isset($_POST["aduser"]) && isset($_POST["adpass"]))
 				<th class="tet">Name</th>
 				<th class="tet">Price</th>
 				<th class="tet">Discription</th>
-				<th class="tet">ID</th>
+				<th class="tet">Quantity</th>
 				<th class="tet">Edit</th>
 			</tr>
 
@@ -60,19 +60,18 @@ if(isset($_POST["aduser"]) && isset($_POST["adpass"]))
 	                <td class="info"><?php echo $row['name']?></td> 
 	                <td class="info"><?php echo $row['price']?></td> 
 	                <td class="info"><?php echo $row['description']?></td> 
-	                <td class="info"><?php echo $row['id']?></td>
+	                <td class="info"><?php echo $row['quantity']?></td>
 	                <td class="info">
 	                	<form action='delete.php' method="POST">
-                            <input type='hidden' name='id' value='<?php echo $row['id']?>'>
+                            <input type='hidden' name='stt' value='<?php echo $row['stt']?>'>
                             <input class="edit-btn" type='submit' value='Delete'>
                         </form> <br>
 
                         <form action="update.php" method="POST">
-                            <input type='hidden' name='stt' value='<?php echo $row['stt']?>'>
                             <input type='hidden' name='name' value='<?php echo $row['proname']?>'>
                             <input type='hidden' name='price' value='<?php echo $row['price']?>'>
                             <input type='hidden' name='description' value='<?php echo $row['description']?>'>
-                            <input type='hidden' name='id' value='<?php echo $row['id']?>'>
+                            <input type='hidden' name='quantity' value='<?php echo $row['quantity']?>'>
                             <input class="edit-btn" type='submit' value='Update'>
                         </form>
 	                </td>
