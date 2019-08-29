@@ -35,7 +35,7 @@
                         }
                     else
                         {
-                            $sql = "select * from product where name='$name'";
+                            $sql = "select * from toys where name='$name'";
                             $query = pg_query($conn, $sql);
                             if(pg_num_rows($query)>0)
                             {
