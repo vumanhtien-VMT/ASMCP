@@ -47,7 +47,7 @@
                             }
                             else
                             {
-                                $sql = "INSERT INTO toys(name, price, description,quantity) VALUES ('$name','$price','$description','$quantity')";
+                                $sql = "insert into toys(name, price, description, quantity) values ('$name','$price','$description','$quantity')";
                                 pg_query($conn,$sql);
                                 ?> 
                                     <script>
